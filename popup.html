@@ -1,17 +1,9 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="popup.css"><title>Boss 求职助手</title></head>
 <body><main>
-  <h1>Boss 求职助手</h1>
-  <p class="hint">系统只分析和填入内容；最终发送必须由你在 Boss 页面手动点击。</p>
-  <section class="queue-section"><div class="section-title"><h2>待人工确认</h2><button id="refresh" class="text-button">刷新</button></div><div id="queue" class="queue"></div></section>
-  <details><summary>模型与简历配置</summary>
-    <div id="config-state" class="config-state" role="status">正在读取本地配置…</div>
-    <label>API 地址<input id="endpoint" placeholder="https://api.openai.com/v1"></label>
-    <label>模型名称<input id="model" placeholder="gpt-4o-mini"></label>
-    <label>API Key<input id="apiKey" type="password" placeholder="仅保存在本浏览器"></label>
-    <label>目标方向与筛选偏好<textarea id="target" placeholder="例如：上海/杭州，3-5 年 Java 后端，优先电商或支付"></textarea></label>
-    <label>简历 / 核心优势<textarea id="resume" placeholder="粘贴完整简历，含技能、年限、项目、学历等"></textarea></label>
-    <label>推荐阈值（0-100）<input id="threshold" type="number" min="0" max="100"></label>
-    <button id="save">保存并验证配置</button>
+  <h1>Boss 求职助手</h1><p class="hint">批量分析后逐条确认；只有已确认项会被自动发送。</p>
+  <section class="queue-section"><div class="section-title"><h2>待人工确认</h2><button id="refresh" class="text-button">刷新</button></div><p id="queue-summary" class="queue-summary"></p><button id="start-send" class="start-send">自动发送已确认项</button><p id="send-status" class="send-status"></p><div id="queue" class="queue"></div></section>
+  <details><summary>模型与简历配置</summary><div id="config-state" class="config-state" role="status">正在读取本地配置…</div>
+    <label>API 地址<input id="endpoint" placeholder="https://api.openai.com/v1"></label><label>模型名称<input id="model" placeholder="gpt-4o-mini"></label><label>API Key<input id="apiKey" type="password" placeholder="仅保存在本浏览器"></label><label>目标方向与筛选偏好<textarea id="target"></textarea></label><label>简历 / 核心优势<textarea id="resume"></textarea></label><label>推荐阈值（0-100）<input id="threshold" type="number" min="0" max="100"></label><button id="save">保存并验证配置</button>
   </details>
 </main><script src="popup.js"></script></body></html>
