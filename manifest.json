@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Boss 求职助手（人工确认版）",
+  "version": "0.1.0",
+  "description": "用可配置的大模型分析岗位并生成打招呼内容；发送始终由用户手动确认。",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://*.zhipin.com/*", "https://*/*", "http://*/*"],
+  "action": {
+    "default_title": "配置 Boss 求职助手",
+    "default_popup": "popup.html"
+  },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://*.zhipin.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
